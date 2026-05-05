@@ -1,50 +1,177 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+// src/pages/index.astro
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabyZey Boosting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="header-section">
+        <h1>BabyZey Boosting</h1>
+        <p>Choose A Category</p>
+    </div>
+
+    <div class="glass-panel">
+        <div class="grid-container">
+            <a href="/rank-boost" class="service-item">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <span>Rank Boost</span>
+            </a>
+            <a href="/placements" class="service-item">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Placements</span>
+            </a>
+            <a href="/win-boost" class="service-item">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Win Boost</span>
+            </a>
+            <a href="/duo-queue" class="service-item">
+                <i class="fa-solid fa-user-group"></i>
+                <span>Duo Queue</span>
+            </a>
+            <a href="/coaching" class="service-item">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Coaching</span>
+            </a>
+            <a href="/accounts" class="service-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Accounts</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="social-footer">
+        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://facebook.com/yourhandle" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+</body>
 </html>
+
+<style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
+    body {
+        /* Replace with a dark Valorant wallpaper */
+        background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 10, 15, 0.7);
+        z-index: -1;
+    }
+
+    .header-section {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .header-section h1 {
+        font-size: 2.5rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .header-section p {
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        color: #d1d5db;
+        text-transform: uppercase;
+    }
+
+    .glass-panel {
+        background: rgba(40, 42, 54, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 50px;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 20px;
+        text-align: center;
+    }
+
+    .service-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease;
+        text-decoration: none;
+        color: white;
+    }
+
+    .service-item:hover {
+        transform: translateY(-5px);
+        color: #ff4655;
+    }
+
+    .service-item i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: 300;
+    }
+
+    .service-item span {
+        font-size: 0.9rem;
+        font-weight: 300;
+    }
+
+    .social-footer {
+        margin-top: 40px;
+        display: flex;
+        gap: 25px;
+    }
+
+    .social-footer a {
+        color: white;
+        font-size: 1.2rem;
+        transition: color 0.2s ease;
+    }
+
+    .social-footer a:hover {
+        color: #ff4655;
+    }
+
+    @media (max-width: 600px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .glass-panel {
+            padding: 30px;
+        }
+    }
+</style>
