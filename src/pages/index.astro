@@ -1,404 +1,177 @@
----
-// src/pages/deployment.astro
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deployment Operations Dashboard</title>
+    <title>BabyZey Boosting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            /* Replace with a dark Valorant wallpaper */
+            background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Dark overlay to match the template's mood */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.7);
+            z-index: -1;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .header-section p {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: #d1d5db;
+            text-transform: uppercase;
+        }
+
+        /* Glassmorphism Panel */
+        .glass-panel {
+            background: rgba(40, 42, 54, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px 20px;
+            text-align: center;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            color: #ff4655; /* Valorant Red */
+        }
+
+        .service-item i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .service-item span {
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .social-footer {
+            margin-top: 40px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .social-footer a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.2s ease;
+        }
+
+        .social-footer a:hover {
+            color: #ff4655;
+        }
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .glass-panel {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="dashboard-container">
-        
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fa-solid fa-layer-group"></i> 
-                <span>Loomis Ops</span>
-            </div>
-            
-            <nav class="nav-menu">
-                <p class="nav-label">Main</p>
-                <a href="#" class="nav-item active"><i class="fa-solid fa-table-columns"></i> Dashboard</a>
-                <a href="#" class="nav-item"><i class="fa-solid fa-server"></i> NIM-OS Status</a>
-                <a href="#" class="nav-item"><i class="fa-solid fa-microchip"></i> Hardware Logs</a>
-                
-                <p class="nav-label mt-4">Team</p>
-                <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Directory</a>
-                <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Analytics</a>
-            </nav>
 
-            <div class="sidebar-footer">
-                <p>Latest Plan Review:</p>
-                <strong>Q2 Deployment Strategy</strong>
-            </div>
-        </aside>
+    <div class="overlay"></div>
 
-        <main class="main-content">
-            <header class="top-header">
-                <div>
-                    <h1>Master Deployment</h1>
-                    <p>Enable Team Success & Track Operating Technology</p>
-                </div>
-                <div class="header-actions">
-                    <button class="btn-primary">New Deployment <i class="fa-solid fa-arrow-right"></i></button>
-                    <div class="profile-icon">Z</div>
-                </div>
-            </header>
-
-            <div class="bento-grid">
-                
-                <div class="card col-span-2">
-                    <div class="card-header">
-                        <h3>Deployment Pipeline Health</h3>
-                        <div class="time-filters">
-                            <span>1D</span><span class="active">7D</span><span>1M</span>
-                        </div>
-                    </div>
-                    <div class="metric-large">
-                        98.5% <i class="fa-solid fa-arrow-trend-up text-green"></i>
-                    </div>
-                    <div class="chart-placeholder">
-                        <div class="line-graph"></div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Active Deployment</h3>
-                        <i class="fa-solid fa-gear fa-spin text-green"></i>
-                    </div>
-                    <div class="status-details">
-                        <p><strong>ID:</strong> DT-X4C</p>
-                        <p><strong>Tech:</strong> Intel Arc B570 Driver Init</p>
-                        <p><strong>Impact:</strong> Render Perf Up 15%</p>
-                        <p><strong>Status:</strong> <span class="badge text-green">IN PROGRESS</span></p>
-                        <p><strong>Est. Time:</strong> 1h 15m</p>
-                    </div>
-                </div>
-
-                <div class="card col-span-full">
-                    <div class="card-header">
-                        <h3>Organizational Impact</h3>
-                    </div>
-                    <div class="progress-bars">
-                        <div class="progress-item">
-                            <div class="progress-label"><span>OT Efficiency</span> <span>45%</span></div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 45%;"></div></div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label"><span>Deployment Speed</span> <span>30%</span></div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 30%;"></div></div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label"><span>Cross-Dept Support</span> <span>85%</span></div>
-                            <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </main>
+    <div class="header-section">
+        <h1>BabyZey Boosting</h1>
+        <p>Choose A Category</p>
     </div>
+
+    <div class="glass-panel">
+        <div class="grid-container">
+            <a href="#" class="service-item">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <span>Rank Boost</span>
+            </a>
+            <a href="#" class="service-item">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Placements</span>
+            </a>
+            <a href="#" class="service-item">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Win Boost</span>
+            </a>
+            <a href="#" class="service-item">
+                <i class="fa-solid fa-user-group"></i>
+                <span>Duo Queue</span>
+            </a>
+            <a href="#" class="service-item">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Coaching</span>
+            </a>
+            <a href="#" class="service-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Accounts</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="social-footer">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+
 </body>
 </html>
-
-<style is:global>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-
-    :root {
-        --bg-main: #090b10;
-        --bg-card: rgba(21, 25, 34, 0.7);
-        --border-color: rgba(255, 255, 255, 0.08);
-        --text-main: #ffffff;
-        --text-muted: #8b92a5;
-        --accent-green: #00ffaa;
-        --accent-green-dim: rgba(0, 255, 170, 0.15);
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', sans-serif;
-    }
-
-    body {
-        background-color: var(--bg-main);
-        color: var(--text-main);
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    /* Layout */
-    .dashboard-container {
-        display: flex;
-        height: 100vh;
-    }
-
-    /* Sidebar */
-    .sidebar {
-        width: 260px;
-        background: rgba(14, 17, 23, 0.8);
-        border-right: 1px solid var(--border-color);
-        padding: 30px 20px;
-        display: flex;
-        flex-direction: column;
-        backdrop-filter: blur(10px);
-    }
-
-    .logo {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--accent-green);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 40px;
-    }
-
-    .nav-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        flex-grow: 1;
-    }
-
-    .nav-label {
-        color: var(--text-muted);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-    }
-
-    .mt-4 { margin-top: 30px; }
-
-    .nav-item {
-        color: var(--text-muted);
-        text-decoration: none;
-        padding: 12px 15px;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        transition: all 0.2s ease;
-    }
-
-    .nav-item:hover, .nav-item.active {
-        background: var(--accent-green-dim);
-        color: var(--accent-green);
-    }
-
-    .sidebar-footer {
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
-        font-size: 0.8rem;
-        color: var(--text-muted);
-    }
-
-    .sidebar-footer strong {
-        color: var(--text-main);
-        display: block;
-        margin-top: 5px;
-    }
-
-    /* Main Content */
-    .main-content {
-        flex-grow: 1;
-        padding: 40px 60px;
-        overflow-y: auto;
-        /* Subtle glow effect in the background */
-        background: radial-gradient(circle at 50% 0%, rgba(0, 255, 170, 0.05) 0%, transparent 50%);
-    }
-
-    /* Header */
-    .top-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 40px;
-    }
-
-    .top-header h1 {
-        font-size: 2.2rem;
-        font-weight: 500;
-        letter-spacing: -0.5px;
-    }
-
-    .top-header p {
-        color: var(--text-muted);
-        margin-top: 5px;
-        font-size: 0.95rem;
-    }
-
-    .header-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .btn-primary {
-        background: var(--accent-green);
-        color: #000;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 30px;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: transform 0.2s;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-2px);
-    }
-
-    .profile-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #2a2f3e;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        border: 1px solid var(--border-color);
-    }
-
-    /* Grid & Cards */
-    .bento-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-
-    .card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 16px;
-        padding: 25px;
-        backdrop-filter: blur(12px);
-    }
-
-    .col-span-2 { grid-column: span 2; }
-    .col-span-full { grid-column: 1 / -1; }
-
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-
-    .card-header h3 {
-        font-size: 1rem;
-        font-weight: 500;
-        color: var(--text-muted);
-    }
-
-    .time-filters {
-        display: flex;
-        gap: 10px;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-    }
-
-    .time-filters span {
-        padding: 4px 10px;
-        border-radius: 12px;
-        cursor: pointer;
-    }
-
-    .time-filters span.active {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--text-main);
-    }
-
-    /* Metrics & Content */
-    .metric-large {
-        font-size: 3rem;
-        font-weight: 400;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .text-green { color: var(--accent-green); }
-
-    .chart-placeholder {
-        height: 100px;
-        margin-top: 20px;
-        position: relative;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .line-graph {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 50px;
-        background: linear-gradient(180deg, var(--accent-green-dim) 0%, transparent 100%);
-        border-top: 2px solid var(--accent-green);
-        clip-path: polygon(0 40%, 20% 60%, 40% 30%, 60% 70%, 80% 20%, 100% 50%, 100% 100%, 0 100%);
-    }
-
-    .status-details {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        font-size: 0.9rem;
-    }
-
-    .status-details p { color: var(--text-muted); }
-    .status-details strong { color: var(--text-main); }
-
-    .badge {
-        font-size: 0.7rem;
-        padding: 3px 8px;
-        border-radius: 4px;
-        background: var(--accent-green-dim);
-        font-weight: 600;
-    }
-
-    /* Progress Bars */
-    .progress-bars {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .progress-item {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .progress-label {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.9rem;
-    }
-
-    .bar-bg {
-        width: 100%;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 3px;
-        overflow: hidden;
-    }
-
-    .bar-fill {
-        height: 100%;
-        background: var(--accent-green);
-        border-radius: 3px;
-        box-shadow: 0 0 10px var(--accent-green);
-    }
-</style>
