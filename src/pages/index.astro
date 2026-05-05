@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro
+// src/pages/deployment.astro
 ---
 
 <!DOCTYPE html>
@@ -7,56 +7,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BabyZey Boosting</title>
+    <title>Deployment Operations Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="overlay"></div>
+    <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i> 
+                <span>Loomis Ops</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <p class="nav-label">Main</p>
+                <a href="#" class="nav-item active"><i class="fa-solid fa-table-columns"></i> Dashboard</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-server"></i> NIM-OS Status</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-microchip"></i> Hardware Logs</a>
+                
+                <p class="nav-label mt-4">Team</p>
+                <a href="#" class="nav-item"><i class="fa-solid fa-users"></i> Directory</a>
+                <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+            </nav>
 
-    <div class="header-section">
-        <h1>BabyZey Boosting</h1>
-        <p>Choose A Category</p>
-    </div>
+            <div class="sidebar-footer">
+                <p>Latest Plan Review:</p>
+                <strong>Q2 Deployment Strategy</strong>
+            </div>
+        </aside>
 
-    <div class="glass-panel">
-        <div class="grid-container">
-            <a href="/rank-boost" class="service-item">
-                <i class="fa-solid fa-arrow-trend-up"></i>
-                <span>Rank Boost</span>
-            </a>
-            <a href="/placements" class="service-item">
-                <i class="fa-solid fa-gamepad"></i>
-                <span>Placements</span>
-            </a>
-            <a href="/win-boost" class="service-item">
-                <i class="fa-solid fa-trophy"></i>
-                <span>Win Boost</span>
-            </a>
-            <a href="/duo-queue" class="service-item">
-                <i class="fa-solid fa-user-group"></i>
-                <span>Duo Queue</span>
-            </a>
-            <a href="/coaching" class="service-item">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                <span>Coaching</span>
-            </a>
-            <a href="/accounts" class="service-item">
-                <i class="fa-solid fa-users"></i>
-                <span>Accounts</span>
-            </a>
-        </div>
-    </div>
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1>Master Deployment</h1>
+                    <p>Enable Team Success & Track Operating Technology</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary">New Deployment <i class="fa-solid fa-arrow-right"></i></button>
+                    <div class="profile-icon">Z</div>
+                </div>
+            </header>
 
-    <div class="social-footer">
-        <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://facebook.com/yourhandle" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>
+            <div class="bento-grid">
+                
+                <div class="card col-span-2">
+                    <div class="card-header">
+                        <h3>Deployment Pipeline Health</h3>
+                        <div class="time-filters">
+                            <span>1D</span><span class="active">7D</span><span>1M</span>
+                        </div>
+                    </div>
+                    <div class="metric-large">
+                        98.5% <i class="fa-solid fa-arrow-trend-up text-green"></i>
+                    </div>
+                    <div class="chart-placeholder">
+                        <div class="line-graph"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Active Deployment</h3>
+                        <i class="fa-solid fa-gear fa-spin text-green"></i>
+                    </div>
+                    <div class="status-details">
+                        <p><strong>ID:</strong> DT-X4C</p>
+                        <p><strong>Tech:</strong> Intel Arc B570 Driver Init</p>
+                        <p><strong>Impact:</strong> Render Perf Up 15%</p>
+                        <p><strong>Status:</strong> <span class="badge text-green">IN PROGRESS</span></p>
+                        <p><strong>Est. Time:</strong> 1h 15m</p>
+                    </div>
+                </div>
+
+                <div class="card col-span-full">
+                    <div class="card-header">
+                        <h3>Organizational Impact</h3>
+                    </div>
+                    <div class="progress-bars">
+                        <div class="progress-item">
+                            <div class="progress-label"><span>OT Efficiency</span> <span>45%</span></div>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 45%;"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label"><span>Deployment Speed</span> <span>30%</span></div>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 30%;"></div></div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label"><span>Cross-Dept Support</span> <span>85%</span></div>
+                            <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
     </div>
 </body>
 </html>
 
 <style is:global>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+        --bg-main: #090b10;
+        --bg-card: rgba(21, 25, 34, 0.7);
+        --border-color: rgba(255, 255, 255, 0.08);
+        --text-main: #ffffff;
+        --text-muted: #8b92a5;
+        --accent-green: #00ffaa;
+        --accent-green-dim: rgba(0, 255, 170, 0.15);
+    }
 
     * {
         margin: 0;
@@ -66,112 +126,98 @@
     }
 
     body {
-        /* Replace with a dark Valorant wallpaper */
-        background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
-        background-size: cover;
+        background-color: var(--bg-main);
+        color: var(--text-main);
         height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Layout */
+    .dashboard-container {
+        display: flex;
+        height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        background: rgba(14, 17, 23, 0.8);
+        border-right: 1px solid var(--border-color);
+        padding: 30px 20px;
         display: flex;
         flex-direction: column;
+        backdrop-filter: blur(10px);
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--accent-green);
+        display: flex;
         align-items: center;
-        justify-content: center;
-        color: white;
+        gap: 10px;
+        margin-bottom: 40px;
     }
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(10, 10, 15, 0.7);
-        z-index: -1;
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex-grow: 1;
     }
 
-    .header-section {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .header-section h1 {
-        font-size: 2.5rem;
-        font-weight: 400;
+    .nav-label {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 10px;
     }
 
-    .header-section p {
-        font-size: 0.85rem;
-        letter-spacing: 2px;
-        color: #d1d5db;
-        text-transform: uppercase;
-    }
+    .mt-4 { margin-top: 30px; }
 
-    .glass-panel {
-        background: rgba(40, 42, 54, 0.4);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 50px;
-        width: 90%;
-        max-width: 600px;
-    }
-
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px 20px;
-        text-align: center;
-    }
-
-    .service-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        transition: transform 0.2s ease, color 0.2s ease;
+    .nav-item {
+        color: var(--text-muted);
         text-decoration: none;
-        color: white;
-    }
-
-    .service-item:hover {
-        transform: translateY(-5px);
-        color: #ff4655;
-    }
-
-    .service-item i {
-        font-size: 2rem;
-        margin-bottom: 15px;
-        font-weight: 300;
-    }
-
-    .service-item span {
+        padding: 12px 15px;
+        border-radius: 8px;
         font-size: 0.9rem;
-        font-weight: 300;
-    }
-
-    .social-footer {
-        margin-top: 40px;
         display: flex;
-        gap: 25px;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s ease;
     }
 
-    .social-footer a {
-        color: white;
-        font-size: 1.2rem;
-        transition: color 0.2s ease;
+    .nav-item:hover, .nav-item.active {
+        background: var(--accent-green-dim);
+        color: var(--accent-green);
     }
 
-    .social-footer a:hover {
-        color: #ff4655;
+    .sidebar-footer {
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        font-size: 0.8rem;
+        color: var(--text-muted);
     }
 
-    @media (max-width: 600px) {
-        .grid-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .glass-panel {
-            padding: 30px;
-        }
+    .sidebar-footer strong {
+        color: var(--text-main);
+        display: block;
+        margin-top: 5px;
     }
-</style>
+
+    /* Main Content */
+    .main-content {
+        flex-grow: 1;
+        padding: 40px 60px;
+        overflow-y: auto;
+        /* Subtle glow effect in the background */
+        background: radial-gradient(circle at 50% 0%, rgba(0, 255, 170, 0.05) 0%, transparent 50%);
+    }
+
+    /* Header */
+    .top-header {
+        display: flex;
+        justify
